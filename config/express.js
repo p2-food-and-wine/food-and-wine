@@ -8,7 +8,7 @@ const layouts = require('express-ejs-layouts')
 const config = require('./config.js')
 const mongoose = require('mongoose')
 
-module.exports = function(app) {
+module.exports = (app) => {
 
   mongoose.connect(config.db)
 
@@ -23,17 +23,18 @@ module.exports = function(app) {
   app.use(express.static(config.rootPath + 'public'))
   app.use(layouts)
   app.use(session({
-    secret: 'basicsecret',
+    secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
   }))
+
   app.use(passport.initialize())
   app.use(passport.session())
 
 
-  app.use(function(req, res, next) {
+  app.use((req, res, next) => {
     res.locals.user = req.user;
-    res.locals.title = 'BASIC BOILERPLATE!!!'
+    res.locals.title = 'Food&Wine'
     next()
   })
 }

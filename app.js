@@ -1,13 +1,13 @@
 const app = require('express')()
 
-require('./config/passport')()
+require('./config/passport-strategy-local')()
 require('./config/express')(app)
 
 const authRoutes = require("./routes/auth-routes")
-const index = require('./routes/index')
+const routes = require('./routes/routes')
 
 app.use('/', authRoutes)
-app.use('/', index)
+app.use('/', routes)
 
 require('./config/error-handler')(app)
 module.exports = app
