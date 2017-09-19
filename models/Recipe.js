@@ -3,10 +3,12 @@ const Schema   = mongoose.Schema
 
 const recipeSchema = new Schema({
   name       : String,
+  avatar     : String,
   type       : String,
-  description: String,
   ingredient : String,
-  avatar     : String
+  description: String
+
+
 }, {
   timestamps : {
     createdAt: 'created_at',
