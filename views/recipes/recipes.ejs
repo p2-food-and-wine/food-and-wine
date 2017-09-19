@@ -2,7 +2,7 @@
   <% recipes.forEach((recipe) => { %>
     <li>
       <h2> <%= recipe.name %></h2>
-      <img src="<%= recipe.avatar%>" width=80 height=80 />
+      <img src="/images/<%= recipe.avatar%>" width=80 height=80 />
       <p>Type: <%= recipe.type %></p>
       <p>Ingredients: <%= recipe.ingredient %></p>
       <p>Preparacion: <%= recipe.preparacion %></p>
