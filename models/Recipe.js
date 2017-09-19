@@ -6,7 +6,7 @@ const recipeSchema = new Schema({
   avatar     : String,
   type       : String,
   ingredient : String,
-  description: String
+  preparacion: String
 
 
 }, {

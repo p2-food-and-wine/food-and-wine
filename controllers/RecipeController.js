@@ -1,4 +1,5 @@
-const Recipe = require("../models/Recipe")
+const Recipe  = require("../models/Recipe")
+const multer  = require('multer')
 
 module.exports = {
   index: (req, res, next) => {
@@ -19,7 +20,7 @@ module.exports = {
       avatar: req.body.avatar,
       type: req.body.type,
       ingredient: req.body.ingredient,
-      description: req.body.description
+      preparacion: req.body.preparacion
 
 
     })
@@ -62,17 +63,19 @@ module.exports = {
   update: (req, res, next) => {
     const {
       name,
+      avatar,
       type,
-      description,
       ingredient,
-      avatar
+      preparacion,
+
     } = req.body
     const updates = {
       name,
+      avatar,
       type,
-      description,
       ingredient,
-      avatar
+      preparacion,
+
     }
     Recipe.findByIdAndUpdate(req.params.id, updates, (err, result) => {
       if (err) {
