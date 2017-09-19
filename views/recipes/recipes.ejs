@@ -1,0 +1,14 @@
+<ul>
+  <% recipes.forEach((recipe) => { %>
+    <li>
+      <h2><%= recipe.name %></h2>
+      <div><%= recipe.avatar%></div>
+      <%= recipe.type %>
+      <%= recipe.ingredient %>
+      <%= recipe.description %>
+      <a href="/recipes/<%= recipe._id %>/edit/">Edit</a>
+      <a href="/recipes/<%= recipe._id %>/delete/">Delete</a>
+    </li>
+  <%  }) %>
+</ul>
+<a href="/recipes/new">Add new recipe</a>

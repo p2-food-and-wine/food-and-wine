@@ -1,20 +1,24 @@
 const Recipe = require("../models/Recipe")
 
-
 module.exports = {
   index: (req, res, next) => {
-    res.render('recipes/recipe')
+    Recipe.find({}).then(recipes => {
+      res.render('recipes/recipes', {
+        title: 'List Of Recipes',
+        recipes: recipes
+      });
+    })
   },
-  get_new: (req, res, next) => {
-    res.render('recipes/new')
+  new: (req, res, next) => {
+    res.render('recipes/create')
   },
 
-  post_new: (req, res, next) => {
+  create: (req, res, next) => {
     const newRecipe = new Recipe({
-      name       : req.body.name,
-      avatar     : req.body.avatar,
-      type       : req.body.type,
-      ingredient : req.body.ingredient,
+      name: req.body.name,
+      avatar: req.body.avatar,
+      type: req.body.type,
+      ingredient: req.body.ingredient,
       description: req.body.description
 
 
@@ -23,41 +27,28 @@ module.exports = {
       if (err) {
         return err;
       } else {
-        return res.redirect("/recipe");
+        return res.redirect("/recipes");
       }
     });
   },
 
-  get_list: (req, res, next) => {
-    Recipe.find({}).then( recipes => {
-      console.log(`recetas aquiiiii ${recipes} 8=====D`)
-      res.render('recipes/list', {
-        title:'List Of Recipes',
-        recipes: recipes
-      });
+  show: (req, res, next) => {
+    Recipe.findById(req.params.id).then(recipe => {
+      res.render('/recipe/show')
     })
-    // Recipe.find({}, (err, recipes) => {
-    //   if (err) { return next(err); }
-    //
-    //   res.render('recipes/list', {
-    //     title:'List Of Recipes',
-    //     recipes: recipes
-    //   });
-    // })
   },
 
-
-  delete:(req, res, next)=>{
+  delete: (req, res, next) => {
     Recipe.findByIdAndRemove(req.params.id, (err, obj) => {
       if (err) {
         return next(err);
       }
-      res.redirect("/recipe");
+      res.redirect("/recipes");
     });
   },
 
 
-  editGet: (req, res, next) => {
+  edit: (req, res, next) => {
     Recipe.findById(req.params.id, (err, recipe) => {
       if (err) {
         console.log(err);
@@ -68,9 +59,21 @@ module.exports = {
     });
   },
 
-  editPost: (req, res, next) => {
-    const { name, type, description, ingredient, avatar } = req.body
-    const updates = { name, type, description, ingredient, avatar }
+  update: (req, res, next) => {
+    const {
+      name,
+      type,
+      description,
+      ingredient,
+      avatar
+    } = req.body
+    const updates = {
+      name,
+      type,
+      description,
+      ingredient,
+      avatar
+    }
     Recipe.findByIdAndUpdate(req.params.id, updates, (err, result) => {
       if (err) {
         console.log(err);
