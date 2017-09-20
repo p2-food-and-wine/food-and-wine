@@ -1,12 +1,12 @@
-const express = require('express')
-const bodyParser = require('body-parser')
+const express      = require('express')
+const bodyParser   = require('body-parser')
 const cookieParser = require('cookie-parser')
-const session = require('express-session')
-const passport = require('passport')
-const logger = require('morgan')
-const layouts = require('express-ejs-layouts')
-const config = require('./config.js')
-const mongoose = require('mongoose')
+const session      = require('express-session')
+const passport     = require('passport')
+const logger       = require('morgan')
+const layouts      = require('express-ejs-layouts')
+const config       = require('./config.js')
+const mongoose     = require('mongoose')
 
 module.exports = (app) => {
 

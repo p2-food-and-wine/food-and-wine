@@ -1,11 +1,11 @@
-const express = require("express")
-const authRoutes = express.Router()
-const passport = require("passport")
-const bcrypt = require("bcrypt")
-const bcryptSalt = 10
-const ensureLogin = require("connect-ensure-login")
+const express        = require("express")
+const authRoutes     = express.Router()
+const passport       = require("passport")
+const bcrypt         = require("bcrypt")
+const bcryptSalt     = 10
+const ensureLogin    = require("connect-ensure-login")
 const AuthController = require("../controllers/AuthController")
-const User = require("../models/User")
+const User           = require("../models/User")
 
 authRoutes.get("/signup", AuthController.signup)
 authRoutes.post('/signup', passport.authenticate('local-signup', {

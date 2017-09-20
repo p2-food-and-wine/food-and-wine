@@ -1,6 +1,7 @@
 const Recipe  = require("../models/Recipe")
 const multer  = require('multer')
-const image= multer({ dest: './public/images/' })
+const image   = multer({ dest: './public/images/' })
+const Picture = require('../models/Picture')
 
 module.exports = {
   index: (req, res, next) => {
@@ -17,9 +18,9 @@ module.exports = {
 
   create: (req, res, next) => {
     const newRecipe = new Recipe({
-      name: req.body.name,
+      name  : req.body.name,
       avatar: `/images/${req.file.filename}`,
-      type: req.body.type,
+      type  : req.body.type,
       ingredient: req.body.ingredient,
       preparacion: req.body.preparacion
 
