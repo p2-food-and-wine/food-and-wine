@@ -6,8 +6,8 @@ const recipeSchema = new Schema({
   avatar     : String,
   type       : String,
   ingredient : String,
-  preparacion: String
-
+  preparacion: String,
+  author     : {type: Schema.Types.ObjectId, ref:'User'}
 
 }, {
   timestamps : {
