@@ -39,7 +39,7 @@ module.exports = function() {
               email,
               password
             } = req.body;
-            const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+            const hashPass = bcryptjs.hashSync(password, bcryptjs.genSaltSync(8), null);
             const newUser = new User({
               username,
               email,
@@ -69,7 +69,7 @@ module.exports = function() {
           message: "Incorrect username"
         })
       }
-      if (!bcrypt.compareSync(password, user.password)) {
+      if (!bcryptjs.compareSync(password, user.password)) {
         return next(null, false, {
           message: "Incorrect password"
         })
