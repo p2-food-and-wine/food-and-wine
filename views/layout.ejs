@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-    <nav>
-      <a class="logo" href="/">BASIC BOILDERPLATE INDEX</a>
 
-      <% if(!user){ %>
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="javascript/wines.js"></script>
+</head>
 
-        <li><a class="login"href="/signup">signup</a></li>
-        <li><a class="login"href="/login"> login</a></li>
+<body>
+  <nav>
+    <a class="logo" href="/">BASIC BOILDERPLATE INDEX</a>
+
+    <% if(!user){ %>
+
+      <li><a class="login" href="/signup">signup</a></li>
+      <li><a class="login" href="/login"> login</a></li>
 
       <% }else{ %>
-        <li><a class="login"href="/logout">logout</a></li>
+        <li><a class="login" href="/logout">logout</a></li>
 
-      <% } %>
-    </nav>
+        <% } %>
+  </nav>
 
-    <%- body -%>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="javascripts/main.js"></script>
-  </body>
+  <%- body -%>
+
+
+</body>
 </html>
