@@ -6,15 +6,15 @@ const image            = multer({ dest: './public/images/' })
 
 router.get('/', IndexController.index)
 
-router.get('/recipes', RecipeController.index)
+router.get('/recipes', RecipeController.listRecipes)
 
-router.get('/recipes/new', RecipeController.new)
-router.post('/recipes/create', image.single('avatar'), RecipeController.create)
+router.get('/recipes/new', RecipeController.newRecipe)
+router.post('/recipes/create', image.single('avatar'), RecipeController.createRecipe)
 
-router.get('/recipes/:id', RecipeController.show)
+router.get('/recipes/:id', RecipeController.showRecipe)
 
-router.get('/recipes/:id/edit', RecipeController.edit)
-router.post('/recipes/:id', RecipeController.update)
+router.get('/recipes/:id/edit', RecipeController.getEdit)
+router.post('/recipes/:id/edit', RecipeController.updateRecipe)
 
 router.get('/recipes/:id/delete', RecipeController.delete)
 
