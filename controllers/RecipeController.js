@@ -1,10 +1,10 @@
 const Recipe  = require("../models/Recipe")
 const multer  = require('multer')
 const image   = multer({ dest: './public/images/' })
-const Picture = require('../models/Picture')
+
 
 module.exports = {
-  index: (req, res, next) => {
+  listRecipes: (req, res, next) => {
     Recipe.find({}).then(recipes => {
       res.render('recipes/recipes', {
         title: 'List Of Recipes',
@@ -12,11 +12,11 @@ module.exports = {
       });
     })
   },
-  new: (req, res, next) => {
+  newRecipe: (req, res, next) => {
     res.render('recipes/create')
   },
 
-  create: (req, res, next) => {
+  createRecipe: (req, res, next) => {
     const newRecipe = new Recipe({
       name  : req.body.name,
       avatar: `/images/${req.file.filename}`,
@@ -34,9 +34,9 @@ module.exports = {
     });
   },
 
-  show: (req, res, next) => {
+  showRecipe: (req, res, next) => {
     Recipe.findById(req.params.id).then(recipe => {
-      res.render('/recipe/show')
+      res.render('/recipes/show')
     })
   },
 
@@ -50,7 +50,8 @@ module.exports = {
   },
 
 
-  edit: (req, res, next) => {
+  getEdit: (req, res, next) => {
+
     Recipe.findById(req.params.id, (err, recipe) => {
       if (err) {
         console.log(err);
@@ -61,7 +62,7 @@ module.exports = {
     });
   },
 
-  update: (req, res, next) => {
+  updateRecipe: (req, res, next) => {
     const {
       name,
       avatar,
@@ -78,11 +79,12 @@ module.exports = {
       preparacion,
 
     }
+    console.log(updates)
     Recipe.findByIdAndUpdate(req.params.id, updates, (err, result) => {
       if (err) {
         console.log(err);
       }
-      res.redirect(`/recipes/recipe/${result._id}`);
+      res.redirect(`/recipes`);
     });
   },
 }
