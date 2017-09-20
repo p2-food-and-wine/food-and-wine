@@ -1,7 +1,7 @@
 const express        = require("express")
 const authRoutes     = express.Router()
 const passport       = require("passport")
-const bcryptjs        = require("bcryptjs")
+const bcryptjs       = require("bcryptjs")
 const bcryptSalt     = 10
 const ensureLogin    = require("connect-ensure-login")
 const AuthController = require("../controllers/AuthController")
@@ -15,7 +15,7 @@ authRoutes.post('/signup', passport.authenticate('local-signup', {
 
 authRoutes.get('/login',ensureLogin.ensureLoggedOut('/'), AuthController.login)
 authRoutes.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/',
+  successRedirect : '/recipes',
   failureRedirect : '/login'
 }))
 

@@ -1,20 +1,20 @@
-<a href="/recipes">Go back</a>
+<a href="/recipes">Recetas</a>
 
 <form action="/recipes/<%=recipe._id %>/edit" method="POST">
-  <label for="name">Name</label>
+  <label for="name">Nombre</label>
   <input type="text" id="name" name="name" value="<%= recipe.name %>">
 
-  <label for="type">Type De Plato:</label>
+  <label for="type">Tipo De Plato:</label>
   <input type="text" name="type" id="type" value="<%= recipe.type %>">
 
-  <label for="avatar">Avatar</label>
+  <label for="avatar">Foto</label>
   <input type="text" name="avatar" id="avatar" value="<%= recipe.avatar %>">
 
-  <label for="ingredient">Ingredients</label>
+  <label for="ingredient">Ingredientes</label>
   <textarea type="text" name="ingredient" id="ingredient"><%= recipe.ingredient %></textarea>
 
   <label for="preparacion">Preparacion</label>
   <textarea type="text" name="preparacion" id="preparacion"><%= recipe.preparacion %></textarea>
 
-  <button type="submit">Update Recipe</button>
+  <button type="submit">Editar Receta</button>
 </form>

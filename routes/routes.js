@@ -4,7 +4,10 @@ const RecipeController = require('../controllers/RecipeController')
 const multer           = require('multer')
 const image            = multer({ dest: './public/images/' })
 
+
 router.get('/', IndexController.index)
+
+// router.post('/recipes', IndexController.showRecipe)
 
 router.get('/recipes', RecipeController.listRecipes)
 
