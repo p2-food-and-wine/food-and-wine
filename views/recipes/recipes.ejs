@@ -2,19 +2,23 @@
   <h2>Hola <%= user.username %></h2>
 <% } %>
 
+<form action="/recipes" method="POST">
+    <input type="search" name="" placeholder="Busca lo que te guste aqui" required="required">
+    <button type="submit">Buscar</button>
+</form>
+
 <ul>
   <% recipes.forEach((recipe) => { %>
     <li>
       <h2> <%= recipe.name %></h2>
       <img src="<%= recipe.avatar%>" width=80 height=80 />
-      <p>Type De Plato: <%= recipe.type %></p>
-      <p>Ingredients: <%= recipe.ingredient %></p>
-      <p>Preparacion: <%= recipe.preparacion %></p>
-  <% if (parseInt(user._id) == parseInt(recipe.author)){ %>
-      <a href="/recipes/<%= recipe._id %>/edit/">Edit</a>
-      <a href="/recipes/<%= recipe._id %>/delete/">Delete</a>
-  <% } %>
+      <p>Tipo De Plato: <%= recipe.type %></p>
+      <a href="/recipes/<%= recipe._id %>">Ver Receta</a>
+    <% if (parseInt(user._id) == parseInt(recipe.author)){ %>
+        <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
+        <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
+    <% } %>
     </li>
   <%  }) %>
 </ul>
-<a href="/recipes/new">Add new recipe</a>
+<a href="/recipes/new">Añadir Receta</a>

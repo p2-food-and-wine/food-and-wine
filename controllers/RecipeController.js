@@ -37,7 +37,7 @@ module.exports = {
 
   showRecipe: (req, res, next) => {
     Recipe.findById(req.params.id).then(recipe => {
-      res.render('/recipes/show')
+      res.render('recipes/show', {recipe} )
     })
   },
 
