@@ -1,8 +1,8 @@
-const passport = require('passport');
-const path = require('path');
+const passport  = require('passport');
+const path      = require('path');
 const debugPath = "app:"+path.basename(__filename).split('.')[0];
-const debug = require('debug')(debugPath);
-const User = require('../models/User');
+const debug     = require('debug')(debugPath);
+const User      = require('../models/User');
 
 
 passport.serializeUser((user, cb) => {
