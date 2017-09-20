@@ -18,11 +18,12 @@ module.exports = {
 
   createRecipe: (req, res, next) => {
     const newRecipe = new Recipe({
-      name  : req.body.name,
-      avatar: `/images/${req.file.filename}`,
-      type  : req.body.type,
-      ingredient: req.body.ingredient,
-      preparacion: req.body.preparacion
+      name       : req.body.name,
+      avatar     : `/images/${req.file.filename}`,
+      type       : req.body.type,
+      ingredient : req.body.ingredient,
+      preparacion: req.body.preparacion,
+      author     : req.user._id
 
     })
     newRecipe.save((err) => {

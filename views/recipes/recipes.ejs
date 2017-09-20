@@ -10,8 +10,10 @@
       <p>Type De Plato: <%= recipe.type %></p>
       <p>Ingredients: <%= recipe.ingredient %></p>
       <p>Preparacion: <%= recipe.preparacion %></p>
+  <% if (parseInt(user._id) == parseInt(recipe.author)){ %>
       <a href="/recipes/<%= recipe._id %>/edit/">Edit</a>
       <a href="/recipes/<%= recipe._id %>/delete/">Delete</a>
+  <% } %>
     </li>
   <%  }) %>
 </ul>
