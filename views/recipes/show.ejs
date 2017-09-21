@@ -3,7 +3,11 @@
 <h1><%= recipe.name %></h1>
 <img src="<%= recipe.avatar %>"width=100 height=100 >
 <p>Tipo De Plato: <%= recipe.type %></p>
+<p>Ingrediente Principal: <%= recipe.principalIngredient %></p>
 <p>Ingredientes: <%= recipe.ingredient %></p>
 <p>Preparacion: <%= recipe.preparacion %></p>
-<a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
-<a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
+
+<% if (user._id.toString() == recipe.author.toString() ){ %>
+  <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
+  <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
+<% } %>
