@@ -1,12 +1,23 @@
 <form action="/recipes/create" method="POST" enctype="multipart/form-data">
   <label for="name">Nombre</label>
-  <input type="text"  name="name" id="name">
+  <input type="text" name="name" id="name">
 
   <label for="avatar">Foto</label>
   <input type="file" name="avatar" id="avatar">
 
-  <label for="type">Tipo De Plato</label>
-  <input type="text" name="type" placeholder="Primero,Segundo,Postre" id="type">
+  <label for="type">Tipo De Plato</label><br>
+  <select name="type" id="type">
+    <% dishOrder.forEach((type) => { %>
+      <option type="text" value="<%= type %>" class="form-control"><%= type %></option>
+    <%  }) %>
+  </select>
+
+  <label for="principalIngredient">Ingrediente Principal</label><br>
+  <select name="principalIngredient" id="principalIngredient">
+    <% principalIngredient.forEach((ingredient) => { %>
+      <option type="text" value="<%= ingredient %>" class="form-control"><%= ingredient %></option>
+    <%  }) %>
+  </select>
 
   <label for="ingredient">Ingredientes</label>
   <textarea type="text" name="ingredient" id="ingredient"></textarea>

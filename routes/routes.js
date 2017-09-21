@@ -8,7 +8,7 @@ const image            = multer({ dest: './public/images/' })
 router.get('/', IndexController.index)
 
 router.get('/recipes', RecipeController.listRecipes)
-// router.post('/recipes', IndexController.searchRecipes)
+
 
 router.get('/recipes/new', RecipeController.newRecipe)
 router.post('/recipes/create', image.single('avatar'), RecipeController.createRecipe)

@@ -12,7 +12,9 @@
     <li>
       <h2> <%= recipe.name %></h2>
       <img src="<%= recipe.avatar%>" width=80 height=80 />
-      <p>Tipo De Plato: <%= recipe.type %></p>
+      <h2> <%= recipe.type %> </h2>
+
+
       <a href="/recipes/<%= recipe._id %>">Ver Receta</a>
 
     <% if (user._id.toString() == recipe.author.toString() ){ %>

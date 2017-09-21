@@ -1,34 +1,29 @@
-const Recipe  = require("../models/Recipe")
-const multer  = require('multer')
-const image   = multer({ dest: './public/images/' })
-
+const Recipe = require("../models/Recipe")
+const multer = require('multer')
+const image = multer({ dest: './public/images/' })
+const dishOrder = require("../models/DishOrder")
+const IngredientP = require("../models/Ingredient")
 
 module.exports = {
   listRecipes: (req, res, next) => {
     Recipe.find({}).then(recipes => {
       res.render('recipes/recipes', {
         title: 'List Of Recipes',
-        recipes: recipes
+        recipes: recipes,
+        dishOrder: dishOrder,
+        ingredientP: IngredientP
       });
     })
   },
   newRecipe: (req, res, next) => {
-    res.render('recipes/create')
-
+    res.render('recipes/create', { dishOrder: dishOrder, principalIngredient: IngredientP })
   },
-
-//   searchRecipes: (req, res, next) => {
-//     const re = new RegExp(req.params.search, 'i')
-//       Recipe.find().or([{ 'name': { $regex: re }}, { 'type': { $regex: re }}]).sort('title', 1).exec(function(err, users) {
-//       res.json(JSON.stringify(recipes));
-//   });
-// },
-
   createRecipe: (req, res, next) => {
     const newRecipe = new Recipe({
       name       : req.body.name,
       avatar     : `/images/${req.file.filename}`,
       type       : req.body.type,
+      principalIngredient: req.body.principalIngredient,
       ingredient : req.body.ingredient,
       preparacion: req.body.preparacion,
       author     : req.user._id
@@ -76,6 +71,7 @@ module.exports = {
       name,
       avatar,
       type,
+      principalIngredient,
       ingredient,
       preparacion,
 
@@ -84,6 +80,7 @@ module.exports = {
       name,
       avatar,
       type,
+      principalIngredient,
       ingredient,
       preparacion,
 
