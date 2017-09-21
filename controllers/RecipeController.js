@@ -14,7 +14,15 @@ module.exports = {
   },
   newRecipe: (req, res, next) => {
     res.render('recipes/create')
+
   },
+
+//   searchRecipes: (req, res, next) => {
+//     const re = new RegExp(req.params.search, 'i')
+//       Recipe.find().or([{ 'name': { $regex: re }}, { 'type': { $regex: re }}]).sort('title', 1).exec(function(err, users) {
+//       res.json(JSON.stringify(recipes));
+//   });
+// },
 
   createRecipe: (req, res, next) => {
     const newRecipe = new Recipe({
