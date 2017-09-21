@@ -14,10 +14,12 @@
       <img src="<%= recipe.avatar%>" width=80 height=80 />
       <p>Tipo De Plato: <%= recipe.type %></p>
       <a href="/recipes/<%= recipe._id %>">Ver Receta</a>
-    <% if (parseInt(user._id) == parseInt(recipe.author)){ %>
+
+    <% if (user._id.toString() == recipe.author.toString() ){ %>
         <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
         <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
     <% } %>
+
     </li>
   <%  }) %>
 </ul>
