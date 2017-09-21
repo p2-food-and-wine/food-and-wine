@@ -61,7 +61,8 @@ module.exports = {
         console.log(err);
       }
       res.render('recipes/edit', {
-        recipe: recipe
+        recipe: recipe,
+
       });
     });
   },
