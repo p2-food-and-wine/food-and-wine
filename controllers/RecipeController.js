@@ -22,6 +22,7 @@ module.exports = {
     const newRecipe = new Recipe({
       name       : req.body.name,
       avatar     : `/images/${req.file.filename}`,
+      comments   : req.body.comments,
       type       : req.body.type,
       principalIngredient: req.body.principalIngredient,
       ingredient : req.body.ingredient,
@@ -44,6 +45,12 @@ module.exports = {
     })
   },
 
+  commentRecipe: (req, res, next) => {
+    Recipe.findById(req.params.id).then(recipe => {
+      res.render('show', {recipe} )
+    })
+  },
+
   delete: (req, res, next) => {
     Recipe.findByIdAndRemove(req.params.id, (err, obj) => {
       if (err) {
@@ -63,9 +70,7 @@ module.exports = {
       res.render('recipes/edit', {recipe:recipe ,
               dishOrder: dishOrder,
               principalIngredient: IngredientP} )
-      //   recipe: recipe,
-      //
-      // });
+
     });
   },
 
@@ -73,6 +78,7 @@ module.exports = {
     const {
       name,
       avatar,
+      comments,
       type,
       principalIngredient,
       ingredient,
@@ -82,6 +88,7 @@ module.exports = {
     const updates = {
       name,
       avatar,
+      comments,
       type,
       principalIngredient,
       ingredient,

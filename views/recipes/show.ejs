@@ -7,6 +7,12 @@
 <p>Ingredientes: <%= recipe.ingredient %></p>
 <p>Preparacion: <%= recipe.preparacion %></p>
 
+<form action="/recipes" method="POST">
+<label for="comments">Comentarios:</label>
+<textarea type="text" name="comments" id="comments"></textarea>
+<button type="submit">Enviar Comentario</button><br>
+</form>
+
 <% if (user._id.toString() == recipe.author.toString() ){ %>
   <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
   <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>

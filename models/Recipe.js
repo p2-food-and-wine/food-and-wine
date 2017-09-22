@@ -6,6 +6,7 @@ const IngredientP = require('./Ingredient')
 const recipeSchema = new Schema({
   name               : String,
   avatar             : String,
+  comments           : String,
   type               : { type: String, enum: dishOrder, required: true },
   principalIngredient: { type: String, enum: IngredientP, required: true },
   ingredient         : String,

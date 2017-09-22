@@ -15,6 +15,8 @@ router.post('/recipes/create', image.single('avatar'), RecipeController.createRe
 
 router.get('/recipes/:id', RecipeController.showRecipe)
 
+router.post('/show/:id', RecipeController.commentRecipe)
+
 router.get('/recipes/:id/edit', RecipeController.getEdit)
 router.post('/recipes/:id/edit', RecipeController.updateRecipe)
 
