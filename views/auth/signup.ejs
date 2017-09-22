@@ -1,16 +1,16 @@
 <form action="/signup" method="post" id="form-container">
   <div class="field">
-    <label for="username">USERNAME</label><br><br>
+    <label for="username">USERNAME</label><br>
     <input class="boxtext" id="username" type="text" name="username" placeholder="JonSnow">
-  </div>
+  </div><br>
   <div class="field">
-    <label for="mail">EMAIL</label><br><br>
+    <label for="mail">EMAIL</label><br>
     <input class="boxtext" id="mail" type="mail" name="email" placeholder="mail">
-  </div>
+  </div><br>
   <div class="field">
-    <label for="password">PASSWORD</label><br><br>
+    <label for="password">PASSWORD</label><br>
     <input class="boxtext" id="password" type="password" name="password" placeholder="Your password">
-  </div>
+  </div><br>
 
   <% if (typeof message !== "undefined") { %>
     <div class="error-message"><%= message %></div>
