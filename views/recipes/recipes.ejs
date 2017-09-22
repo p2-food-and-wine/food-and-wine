@@ -1,6 +1,9 @@
+<a class="login"href="/logout">logout</a>
+
 <% if (user) { %>
   <h2>Hola <%= user.username %></h2>
 <% } %>
+
 
 <form action="/recipes" method="POST">
   <select name="type" id="type">
