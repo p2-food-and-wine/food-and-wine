@@ -1,12 +1,12 @@
 <form action="/login" method="POST">
   <div class="field">
-    <label for="username">username:</label><br><br>
+    <label for="username">username:</label><br>
     <input class="boxtext" type="text" name="username">
-  </div>
+  </div><br>
   <div class="field">
-    <label for="password">password:</label><br><br>
+    <label for="password">password:</label><br>
     <input class="boxtext" type="password" name="password">
-  </div>
+  </div><br>
   <% if (typeof message != "undefined") { %>
   <div class="error-message">
     <%= message %>

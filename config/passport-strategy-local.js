@@ -1,8 +1,8 @@
-const passport = require("passport")
+const passport      = require("passport")
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../models/User')
-const bcrypt = require("bcrypt")
-const dotenv = require("dotenv").load()
+const User          = require('../models/User')
+const bcryptjs      = require("bcryptjs")
+const dotenv        = require("dotenv").load()
 
 module.exports = function() {
   passport.serializeUser((user, cb) => {
@@ -39,7 +39,7 @@ module.exports = function() {
               email,
               password
             } = req.body;
-            const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+            const hashPass = bcryptjs.hashSync(password, bcryptjs.genSaltSync(8), null);
             const newUser = new User({
               username,
               email,
@@ -69,7 +69,7 @@ module.exports = function() {
           message: "Incorrect username"
         })
       }
-      if (!bcrypt.compareSync(password, user.password)) {
+      if (!bcryptjs.compareSync(password, user.password)) {
         return next(null, false, {
           message: "Incorrect password"
         })

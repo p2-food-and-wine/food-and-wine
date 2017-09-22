@@ -1,0 +1,35 @@
+<a class="login"href="/logout">logout</a>
+
+<% if (user) { %>
+  <h2>Hola <%= user.username %></h2>
+<% } %>
+
+
+<form action="/recipes" method="POST">
+  <select name="type" id="type">
+    <% dishOrder.forEach((type) => { %>
+      <option type="text" value="<%= type %>" class="form-control"><%= type %></option>
+    <%  }) %>
+  </select>
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+  <% recipes.forEach((recipe) => { %>
+    <li>
+      <h2> <%= recipe.name %></h2>
+      <img src="<%= recipe.avatar%>" width=100 height=100 />
+      <h3> Tipo De Plato : <%= recipe.type %> </h3>
+      <h3> Ingrediente Principal :<%= recipe.principalIngredient %> </h3>
+
+      <a href="/recipes/<%= recipe._id %>">Ver Receta</a>
+
+    <% if (user._id.toString() == recipe.author.toString() ){ %>
+        <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
+        <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
+    <% } %>
+
+    </li>
+  <%  }) %>
+</ul>
+<a href="/recipes/new">Añadir Receta</a>
