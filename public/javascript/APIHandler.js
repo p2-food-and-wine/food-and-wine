@@ -14,4 +14,15 @@ class APIHandler {
       }
     })
   }
+
+  getRandomList(parameters){
+    return $.ajax({
+      method: 'GET',
+      url: `${this.BASE_URL}?q=${parameters}`,
+      dataType: 'jsonp',
+      headers: {
+        Authorization: this.API_KEY
+      }
+    })
+  }
 }

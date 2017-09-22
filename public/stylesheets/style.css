@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+p { color: #F90B6D;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+
+}
+
+
+}
+
+img {
+position: relative;
+width: 200px;
+height: 200px;
+margin:auto;
+
+}
