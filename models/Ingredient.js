@@ -5,6 +5,6 @@ module.exports = [
   "Pescado",
   "Arroz",
   "Verduras",
-  "postre"
+  "Postre"
 
 ]

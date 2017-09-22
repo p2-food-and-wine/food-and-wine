@@ -30,13 +30,8 @@ module.exports = {
       author     : req.user._id
 
     })
-    newRecipe.save((err) => {
-      if (err) {
-        return err;
-      } else {
-        return res.redirect("/recipes");
-      }
-    });
+    newRecipe.save().then (recipe => res.redirect("/recipes"))
+    
   },
 
   showRecipe: (req, res, next) => {
@@ -45,18 +40,12 @@ module.exports = {
     })
   },
 
-  commentRecipe: (req, res, next) => {
-    Recipe.findById(req.params.id).then(recipe => {
-      res.render('show', {recipe} )
-    })
-  },
+
 
   delete: (req, res, next) => {
-    Recipe.findByIdAndRemove(req.params.id, (err, obj) => {
-      if (err) {
-        return next(err);
-      }
-      res.redirect("/recipes");
+    Recipe.findByIdAndRemove(req.params.id).then( () => {
+        res.redirect("/recipes");
+
     });
   },
 
