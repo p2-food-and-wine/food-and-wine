@@ -60,10 +60,12 @@ module.exports = {
       if (err) {
         console.log(err);
       }
-      res.render('recipes/edit', {
-        recipe: recipe,
-
-      });
+      res.render('recipes/edit', {recipe:recipe ,
+              dishOrder: dishOrder,
+              principalIngredient: IngredientP} )
+      //   recipe: recipe,
+      //
+      // });
     });
   },
 
