@@ -4,6 +4,11 @@ body {
 
 }
 
+#fondo{
+  background-image: url(../public/images/fondoindex.jpg);
+  height: 100%
+}
+
 a {
   color: #00B7FF;
 }
