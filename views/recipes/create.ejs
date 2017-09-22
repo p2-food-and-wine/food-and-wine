@@ -8,14 +8,14 @@
   <label for="type">Tipo De Plato</label><br>
   <select name="type" id="type">
     <% dishOrder.forEach((type) => { %>
-      <option type="text" value="<%= type %>" class="form-control"><%= type %></option>
+      <option value="<%= type %>" class="form-control" onclick="setValue('<%= type %>')"><%= type %></option>
     <%  }) %>
   </select>
 
   <label for="principalIngredient">Ingrediente Principal</label><br>
   <select name="principalIngredient" id="principalIngredient">
     <% principalIngredient.forEach((ingredient) => { %>
-      <option type="text" value="<%= ingredient %>" class="form-control"><%= ingredient %></option>
+      <option value="<%= ingredient %>" class="form-control" onclick="setValue('<%= ingredient %>')"><%= ingredient %></option>
     <%  }) %>
   </select>
 
