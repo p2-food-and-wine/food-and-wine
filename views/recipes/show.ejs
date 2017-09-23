@@ -7,10 +7,14 @@
 <p>Ingredientes: <%= recipe.ingredient %></p>
 <p>Preparacion: <%= recipe.preparacion %></p>
 
+<div id="maridaje-container"></div>
+<button id="search">Maridar</button>
+
+
 <form action="/recipes" method="POST">
-<label for="comments">Comentarios:</label>
-<textarea type="text" name="comments" id="comments"></textarea>
-<button type="submit">Enviar Comentario</button><br>
+  <label for="comments">Comentarios:</label>
+  <textarea type="text" name="comments" id="comments"></textarea>
+  <button type="submit">Enviar Comentario</button><br>
 </form>
 
 <% if (user._id.toString() == recipe.author.toString() ){ %>

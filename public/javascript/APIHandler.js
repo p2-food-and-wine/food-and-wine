@@ -7,7 +7,7 @@ class APIHandler {
   getFullList() {
     return $.ajax({
       method: 'GET',
-      url: this.BASE_URL,
+      url: `${this.BASE_URL}?q=red+wine&white+wine&rose+wine&champagne`,
       dataType: 'jsonp',
       headers: {
         Authorization: this.API_KEY
