@@ -1,14 +1,18 @@
+const request = require('superagent')
 const mongoose = require("mongoose")
 const dbURL = require('../config/config').db
 const Equivalence = require('../models/Equivalence')
+mongoose.connect('mongodb://localhost/foodandwine', {
+  useMongoClient: true
+});
+const API = "MDphMTIyMzQ1Ni05ZDJiLTExZTctOTQ1Ni0zMzc4ODZmMmJlNzQ6cDlGNHBOV1JmaVl0QUE3Rkc2dmFQYUpOTFZSdUR5Yml5S2ZB"
 
 mongoose.connect(dbURL)
-  .then( () => {
+  .then(() => {
     console.log(`Connected to db! ${dbURL}`)
   })
 
-const equivalences = [
-  {
+const equivalences = [{
     ingredient: 'Carne Roja',
     wineType: 'Vino rosado',
     wineTypeOriginal: 'rose+wine'
@@ -93,3 +97,10 @@ const equivalences = [
   },
 
 ]
+
+Equivalence.create(equivalences)
+  .then(() => {
+    console.log('All done!!')
+    mongoose.connection.close()
+  })
+  .catch(err => console.log(err))

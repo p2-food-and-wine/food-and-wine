@@ -15,8 +15,11 @@
   <%= recipe.preparacion %>
 </p>
 
+<div id="maridaje-container"></div>
+<button id="search" data-principal-ingredient="<%= recipe.principalIngredient %>">Maridar</button>
 
-<form action="/recipes/show/<%= recipe.id %>/comment/create" method="POST">
+
+<form action="/recipes" method="POST">
   <label for="comments">Comentarios:</label>
   <textarea type="text" name="comments" id="comments"></textarea>
   <button type="submit">Enviar Comentario</button><br>

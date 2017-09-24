@@ -6,3 +6,4 @@ node_modules
 
 images
 public/images/*
+package-lock.json
