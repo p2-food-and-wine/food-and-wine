@@ -8,7 +8,7 @@
 <p>Preparacion: <%= recipe.preparacion %></p>
 
 <div id="maridaje-container"></div>
-<button id="search">Maridar</button>
+<button id="search" data-principal-ingredient="<%= recipe.principalIngredient %>">Maridar</button>
 
 
 <form action="/recipes" method="POST">

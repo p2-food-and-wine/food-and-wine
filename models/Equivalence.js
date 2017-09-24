@@ -3,20 +3,18 @@ const Schema = mongoose.Schema
 const ingredient = require('./Ingredient')
 
 const equivalenceSchema = new Schema({
-  ingredient : { type: String, enum: ingredient, required: true } ,
+  ingredient : { type: String, required: true } ,
   wineType: { type: String, enum: [
-    'tinto',
-    'blanco',
-    'rosado',
-    'champán'
-
+    'Vino tinto',
+    'Vino blanco',
+    'Vino rosado',
+    'Champán'
   ]},
   wineTypeOriginal: { type: String, enum: [
-    'red wine',
-    'white wine',
-    'rose wine',
+    'red+wine',
+    'white+wine',
+    'rose+wine',
     'champagne'
-
   ]}
 
 }, {
