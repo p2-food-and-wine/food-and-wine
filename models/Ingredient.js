@@ -1,10 +1,10 @@
 module.exports = [
-  "Carne roja",
+  "Carne Roja",
   "Carne Blanca",
   "Marisco",
   "Pescado",
   "Arroz",
   "Verduras",
-  "postre"
+  "Postre"
 
 ]

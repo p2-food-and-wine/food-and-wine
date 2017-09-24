@@ -6,6 +6,7 @@ const RecipeController = require('../controllers/RecipeController')
 const WineController = require('../controllers/WineController')
 const EquivalenceController = require('../controllers/EquivalenceController')
 
+
 router.get('/', IndexController.index)
 
 router.get('/wines', WineController.index)
@@ -15,7 +16,6 @@ router.get('/recipes/new', RecipeController.newRecipe)
 router.post('/recipes/create', image.single('avatar'), RecipeController.createRecipe)
 
 router.get('/recipes/:id', RecipeController.showRecipe)
-router.post('/show/:id', RecipeController.commentRecipe)
 
 router.get('/recipes/:id/edit', RecipeController.getEdit)
 router.post('/recipes/:id/edit', RecipeController.updateRecipe)
