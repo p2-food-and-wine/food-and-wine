@@ -2,7 +2,7 @@ const request = require('superagent')
 const mongoose = require("mongoose")
 const dbURL = require('../config/config').db
 const Equivalence = require('../models/Equivalence')
-mongoose.connect('mongodb://localhost/foodandwine', {
+mongoose.connect('process.env.DB_URL', {
   useMongoClient: true
 });
 const API = "MDphMTIyMzQ1Ni05ZDJiLTExZTctOTQ1Ni0zMzc4ODZmMmJlNzQ6cDlGNHBOV1JmaVl0QUE3Rkc2dmFQYUpOTFZSdUR5Yml5S2ZB"
