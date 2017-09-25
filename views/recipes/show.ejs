@@ -1,4 +1,4 @@
-<body background="uploads/fondoindex.jpg">
+
 
   <nav>
     <div class="nav-wrapper  grey darken-4">
@@ -7,24 +7,25 @@
     </div>
   </nav>
 
-<a href="/recipes">Recetas</a>
+<a class="waves-effect grey darken-4 btn btn-maridar" href="/recipes">Recetas</a>
 
-<div class="container">
+
   <div class="row"></div>
-
-  <div class="col s12 m6 l3 xl4">
-<h1><%= recipe.name %></h1>
+   <div class="col l4"></div>
+  <div class="col s12 m6 l6 xl4">
+  <div class="card-content transparent">
+<h1 class="grey-text text-lighten-5"><%= recipe.name %></h1>
 <img src="<%= recipe.avatar %>" width=400 height=400>
-<p>Tipo De Plato:
+<p class="grey-text text-lighten-5">Tipo De Plato:
   <%= recipe.type %>
 </p>
-<p>Ingrediente Principal:
+<p class="grey-text text-lighten-5">Ingrediente Principal:
   <%= recipe.principalIngredient %>
 </p>
-<p>Ingredientes:
+<p class="grey-text text-lighten-5">Ingredientes:
   <%= recipe.ingredient %>
 </p>
-<p>Preparacion:
+<p class="grey-text text-lighten-5">Preparacion:
   <%= recipe.preparacion %>
 </p>
 
@@ -34,10 +35,11 @@
 <div id="maridaje-container"></div>
 <button class="waves-effect grey darken-4 btn btn-maridar" id="search" data-principal-ingredient="<%= recipe.principalIngredient %>">Maridar</button>
 
+  <div class="col l4"></div>
 
 <% if (user._id.toString() == recipe.author.toString() ){ %>
-  <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
-  <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
+  <a class="grey-text text-lighten-5" href="/recipes/<%= recipe._id %>/edit/">Editar</a>
+  <a class="grey-text text-lighten-5" href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
   <% } %>
 </div>
 </div>

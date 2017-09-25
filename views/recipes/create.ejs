@@ -1,4 +1,3 @@
-<body background="uploads/fondoindex.jpg">
 
   <nav>
     <div class="nav-wrapper  grey darken-4">
@@ -7,33 +6,44 @@
     </div>
   </nav>
 
+ <div>
+  <a class="waves-effect grey darken-4 btn btn-maridar" href="/recipes">Recetas</a>
+</div>
+
+
+<div class="row">
+  <div class="col l4"></div>
+  <div class="col s12 m6 l4 xl4">
 <form  action="/recipes/create" method="POST" enctype="multipart/form-data">
-  <label for="name">Nombre</label>
+  <label for="name"><h5>Nombre</h5></label>
   <input type="text" name="name" id="name">
 
-  <label for="avatar">Foto</label>
+  <label for="avatar"><h5>Foto</h5></label>
   <input type="file" name="avatar" id="avatar">
 
-  <label for="type">Tipo De Plato</label><br>
-  <select name="type" id="type">
+  <label for="type"><h5>Tipo De Plato</h5></label><br>
+  <select class="browser-default" name="type" id="type">
     <% dishOrder.forEach((type) => { %>
       <option value="<%= type %>" class="form-control" onclick="setValue('<%= type %>')"><%= type %></option>
     <%  }) %>
   </select>
 
-  <label for="principalIngredient">Ingrediente Principal</label><br>
-  <select name="principalIngredient" id="principalIngredient">
+  <label for="principalIngredient"><h5>Ingrediente Principal</h5></label><br>
+  <select class="browser-default" name="principalIngredient" id="principalIngredient">
     <% principalIngredient.forEach((ingredient) => { %>
       <option value="<%= ingredient %>" class="form-control" onclick="setValue('<%= ingredient %>')"><%= ingredient %></option>
     <%  }) %>
   </select>
 
-  <label for="ingredient">Ingredientes</label>
+  <label for="ingredient"><h5>Ingredientes</h5></label>
   <textarea type="text" name="ingredient" id="ingredient"></textarea>
 
-  <label for="preparacion">Preparacion</label>
+  <label for="preparacion"><h5>Preparacion</h5></label>
   <textarea type="text" name="preparacion" id="preparacion"></textarea>
-
-  <button type="submit">Crear Receta</button>
+  <div >
+    <button class="waves-effect grey darken-4 btn btn-maridar" type="submit">Crear Receta</button>
+  </div>
 </form>
-<a href="/recipes">Recetas</a>
+<div class="col l4"></div>
+</div>
+</div>

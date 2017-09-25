@@ -1,6 +1,7 @@
 
 body{
   background-size: cover;
+  background-image: url(../uploads/fondoindex.jpg);
   height: 100%
   background-repeat: no-repeat
 }
@@ -19,6 +20,10 @@ body{
 
 .btn-maridar{
   border-radius: 10%
+}
+
+.login{
+  padding-top: 40%
 }
 
 

@@ -1,34 +1,55 @@
-<body>
 
-<a href="/recipes">Recetas</a>
+
+  <nav>
+    <div class="nav-wrapper  grey darken-4">
+    <a href="/" class="brand-logo">FOOD&WINE</a>
+    <div><a class="right hide-on-med-and-down logout" href="/logout">logout</a></div>
+    </div>
+  </nav>
+
+
+  <div>
+   <a class="waves-effect grey darken-4 btn btn-maridar" href="/recipes">Recetas</a>
+  </div>
+
+  <div class="row">
+
+    <div class="col l4"></div>
+  <div class="col s12 m6 l4 xl4">
+
+    <div class="card-content transparent">
 
 <form action="/recipes/<%=recipe._id %>/edit" method="POST">
-  <label for="name">Nombre</label>
+  <label for="name"><h5>Nombre</h5></label>
   <input type="text" id="name" name="name" value="<%= recipe.name %>">
 
-  <label for="avatar">Foto</label>
-  <input type="text" name="avatar" id="avatar" value="<%= recipe.avatar %>">
+  <label for="avatar"><h5>Foto</h5></label>
+  <input class="browser-default" type="text" name="avatar" id="avatar" value="<%= recipe.avatar %>">
 
-  <label for="type">Tipo De Plato</label><br>
-  <select name="type" id="type">
+  <label for="type"><h5>Tipo De Plato</h5></label><br>
+  <select class="browser-default" name="type" id="type">
     <% dishOrder.forEach((type) => { %>
       <option value="<%= type %>" class="form-control" onclick="setValue('<%= type %>')"><%= type %></option>
     <%  }) %>
   </select>
 
-  <label for="principalIngredient">Ingrediente Principal</label><br>
-  <select name="principalIngredient" id="principalIngredient">
+  <label  for="principalIngredient"><h5>Ingrediente Principal</h5></label><br>
+  <select class="browser-default " name="principalIngredient" id="principalIngredient">
     <% principalIngredient.forEach((ingredient) => { %>
       <option value="<%= ingredient %>" class="form-control" onclick="setValue('<%= ingredient %>')"><%= ingredient %></option>
     <%  }) %>
   </select>
 
 
-  <label for="ingredient">Ingredientes</label>
-  <textarea type="text" name="ingredient" id="ingredient"><%= recipe.ingredient %></textarea>
+  <label for="ingredient"><h5>Ingredientes</h5></label>
+  <textarea class="grey-text text-lighten-5" type="text" name="ingredient" id="ingredient"><%= recipe.ingredient %></textarea>
 
-  <label for="preparacion">Preparacion</label>
-  <textarea type="text" name="preparacion" id="preparacion"><%= recipe.preparacion %></textarea>
+  <label for="preparacion"><h5>Preparacion</h5></label>
+  <textarea class="grey-text text-lighten-5" type="text" name="preparacion" id="preparacion"><%= recipe.preparacion %></textarea>
 
-  <button type="submit">Editar Receta</button>
+  <button class="waves-effect grey darken-4 btn btn-maridar" type="submit">Editar Receta</button>
 </form>
+<div class="col l4"></div>
+</div>
+</div>
+</div>
