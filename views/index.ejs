@@ -1,15 +1,28 @@
-<body>
+<body background="uploads/fondoindex.jpg">
 
-<div id="fondo">
 
-<% if(!user){ %>
+  <nav>
+      <div class="nav-wrapper  grey darken-4">
+        <a href="/" class="brand-logo">FOOD&WINE</a>
+        <% if(!user){ %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/signup">signup</a></li>
+          <li><a href="/login">login</a></li>
+        <% }else{ %>
+          <li><a href="/logout">logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
 
-  <li><a class="login"href="/signup">signup</a></li>
-  <li><a class="login"href="/login"> login</a></li>
+  <div class="center-align">
+  <h3 class="center-align grey-text text-lighten-5 title-index">Acerca De Nosotros....</h3>
 
-<% }else{ %>
-  <li><a class="login"href="/logout">logout</a></li>
-
-<% } %>
-
+  <h3 class=" grey-text text-lighten-5 title-index">FOOD&WINE</h3>
+    <p class="flow-text  grey-text text-lighten-5">
+      Nace de la necesidad de hacer del comer una verdadera experiencia....<br>
+      De conseguir una armonia perfecta entre lo que comemos y con que lo acompañamos,<br>
+      porque esto puede marcar una gran diferencia.<br>
+      Entra y empieza a descubrir, saborear y potenciar los sabores de tu comida.
+    </p>
 </div>

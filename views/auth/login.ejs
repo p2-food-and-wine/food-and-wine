@@ -1,3 +1,15 @@
+
+<body background="uploads/fondoindex.jpg">
+
+<nav>
+    <div class="nav-wrapper  grey darken-4">
+      <a href="/" class="brand-logo center ">FOOD&WINE</a>
+</nav>
+
+<div class="col s12 m6 l3 xl4">
+
+
+    <div class="card-content transparent">
 <form action="/login" method="POST">
   <div class="field">
     <label for="username">username:</label><br>
@@ -7,18 +19,21 @@
     <label for="password">password:</label><br>
     <input class="boxtext" type="password" name="password">
   </div><br>
+  </div>
   <% if (typeof message != "undefined") { %>
   <div class="error-message">
     <%= message %>
   </div>
   <% } %>
-  <div id="create">
+  <div class="waves-effect transparent btn">
     <input type="submit" value="Log In">
   </div>
   <div class="check-login">
-    <p class="account-message">
+    <p class="grey-text text-lighten-5">
       You do not have an account?
-      <a class="click" href="/signup">Create</a>
+      <a class="grey-text text-lighten-5" href="/signup">Create</a>
     </p>
   </div>
 </form>
+</div>
+</div>

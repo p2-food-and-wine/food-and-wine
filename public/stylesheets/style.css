@@ -1,4 +1,25 @@
 
+body{
+  background-size: cover;
+  height: 100%
+  background-repeat: no-repeat
+}
+
+.title-index{
+  padding-top: 5%
+}
+
+.container{
+  padding-top: 5%
+}
+
+.logout{
+  padding-right: 3%
+}
+
+.btn-maridar{
+  border-radius: 10%
+}
 
 
 

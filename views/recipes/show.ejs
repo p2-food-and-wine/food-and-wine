@@ -1,7 +1,18 @@
-<body>
+<body background="uploads/fondoindex.jpg">
+
+  <nav>
+    <div class="nav-wrapper  grey darken-4">
+    <a href="/" class="brand-logo">FOOD&WINE</a>
+    <div><a class="right hide-on-med-and-down logout" href="/logout">logout</a></div>
+    </div>
+  </nav>
 
 <a href="/recipes">Recetas</a>
 
+<div class="container">
+  <div class="row"></div>
+
+  <div class="col s12 m6 l3 xl4">
 <h1><%= recipe.name %></h1>
 <img src="<%= recipe.avatar %>" width=400 height=400>
 <p>Tipo De Plato:
@@ -17,17 +28,17 @@
   <%= recipe.preparacion %>
 </p>
 
+
+
+
 <div id="maridaje-container"></div>
-<button id="search" data-principal-ingredient="<%= recipe.principalIngredient %>">Maridar</button>
+<button class="waves-effect grey darken-4 btn btn-maridar" id="search" data-principal-ingredient="<%= recipe.principalIngredient %>">Maridar</button>
 
-
-<form action="/recipes" method="POST">
-  <label for="comments">Comentarios:</label>
-  <textarea type="text" name="comments" id="comments"></textarea>
-  <button type="submit">Enviar Comentario</button><br>
-</form>
 
 <% if (user._id.toString() == recipe.author.toString() ){ %>
   <a href="/recipes/<%= recipe._id %>/edit/">Editar</a>
   <a href="/recipes/<%= recipe._id %>/delete/">Eliminar</a>
   <% } %>
+</div>
+</div>
+</div>
